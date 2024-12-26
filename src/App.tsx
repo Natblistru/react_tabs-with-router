@@ -1,4 +1,11 @@
-import { Routes, Route, Navigate, Link, useParams, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  Link,
+  useParams,
+  useLocation,
+} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -11,14 +18,14 @@ const tabs = [
 
 const TabsPage = () => {
   const { tabId } = useParams();
-  const selectedTab = tabs.find((tab) => tab.id === tabId);
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => (
+          {tabs.map(tab => (
             <li
               key={tab.id}
               className={tabId === tab.id ? 'is-active' : ''}
@@ -43,6 +50,7 @@ export const App = () => {
     if (path === '/') {
       return location.pathname === '/';
     }
+
     return location.pathname.startsWith(path);
   };
 
@@ -77,7 +85,10 @@ export const App = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/tabs" element={<TabsPage />} />
             <Route path="/tabs/:tabId" element={<TabsPage />} />
-            <Route path="*" element={<h1 className="title">Page not found</h1>} />
+            <Route
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
           </Routes>
         </div>
       </div>
