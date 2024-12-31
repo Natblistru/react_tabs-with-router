@@ -2,8 +2,9 @@ import { App } from './App';
 
 import { TabPage } from './pages/TabPage';
 import { HomePage } from './pages/HomePage';
+
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Routes,
   Navigate,
