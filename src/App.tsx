@@ -1,12 +1,10 @@
-import { Outlet, useParams, NavLink } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import classNames from 'classnames';
 
 export const App = () => {
-  const { tabId } = useParams();
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -26,7 +24,7 @@ export const App = () => {
             </NavLink>
 
             <NavLink
-              to={`/tabs/${tabId}`}
+              to={`/tabs`}
               className={({ isActive }) =>
                 classNames('navbar-item', { 'is-active': isActive })
               }
