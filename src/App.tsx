@@ -1,7 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const App = () => {
+  const getLinkClass = ({ isActive }: { isActive: boolean }) => {
+    return classNames('navbar-item', {
+      'is-active': isActive,
+    });
+  };
+
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -11,12 +17,12 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className={classNames('navbar-item', 'is-active')}>
+            <NavLink to="/" className={getLinkClass}>
               Home
-            </Link>
-            <Link to="/tabs" className="navbar-item">
+            </NavLink>
+            <NavLink to="/tabs" className={getLinkClass}>
               Tabs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
