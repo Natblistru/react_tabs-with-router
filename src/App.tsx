@@ -28,13 +28,13 @@ const TabsPage = () => {
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(t => (
+          {tabs.map(tables => (
             <li
-              key={t.id}
+              key={tables.id}
               data-cy="Tab"
-              className={t.id === tabId ? 'is-active' : ''}
+              className={tables.id === tabId ? 'is-active' : ''}
             >
-              <Link to={`/tabs/${t.id}`}>{t.title}</Link>
+              <Link to={`/tabs/${tables.id}`}>{tables.title}</Link>
             </li>
           ))}
         </ul>
