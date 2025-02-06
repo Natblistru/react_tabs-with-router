@@ -1,7 +1,13 @@
+import classNames from 'classnames';
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export const Navigation = () => {
+  const handleActiveLink = ({ isActive }: { isActive: boolean }) =>
+    classNames('navbar-item', {
+      'is-active': isActive,
+    });
+
   return (
     <html className="has-navbar-fixed-top">
       <nav
@@ -10,12 +16,12 @@ export const Navigation = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item is-active">
+            <NavLink to="/" className={handleActiveLink}>
               Home
-            </Link>
-            <Link to="/tabs" className="navbar-item">
+            </NavLink>
+            <NavLink to="/tabs" className={handleActiveLink}>
               Tabs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
