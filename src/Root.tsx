@@ -1,4 +1,9 @@
-import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  HashRouter as Router,
+  Routes,
+} from 'react-router-dom';
 import { ErrorPage, Home } from './components/Home';
 import { Tabs } from './components/Tabs';
 import { App } from './App';
@@ -11,6 +16,7 @@ export const Root = () => {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="tabs" element={<Tabs />}>
             <Route index element={'Please select a tab'} />
             <Route path=":tabsId?" element={<TabContent allTabs={tabs} />} />

@@ -14,5 +14,5 @@ export const TabContent: React.FC<TabContentProps> = ({ allTabs }) => {
   const { tabsId } = useParams();
   const tab = allTabs.find(curTab => curTab.id === tabsId);
 
-  return tab ? <p>{tab.content}</p> : <p>Tab not found</p>;
+  return tab ? <p>{tab.content}</p> : <p>Please select a tab</p>;
 };
