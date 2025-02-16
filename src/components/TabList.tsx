@@ -1,11 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
-import tasbFromServer from '../api/tabsFromServer.json';
+import tabsFromServer from '../api/tabsFromServer.json';
 import classNames from 'classnames';
 
 export const TabList = () => {
   const { tabId } = useParams();
   const selectedTabId = tabId;
-  const tabContent = tasbFromServer.find(
+  const tabContent = tabsFromServer.find(
     item => item.id === selectedTabId,
   )?.content;
 
@@ -13,7 +13,7 @@ export const TabList = () => {
     <>
       <div className="tabs is-boxed">
         <ul>
-          {tasbFromServer.map(tab => (
+          {tabsFromServer.map(tab => (
             <li
               key={tab.id}
               data-cy="Tab"
