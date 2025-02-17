@@ -43,11 +43,7 @@ export const TabsList: React.FC<Props> = ({ tabs }) => {
 
       <div className="block" data-cy="TabContent">
         {tabs.map(tab => {
-          if (tab.id === selectedTabId) {
-            return tab.content;
-          }
-
-          return;
+          return tab.id === selectedTabId && tab.content;
         })}
       </div>
     </div>
