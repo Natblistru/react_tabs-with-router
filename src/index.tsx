@@ -6,9 +6,8 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { App } from './App';
-import { TabsList } from './component/TabsList';
+import { TabsPage } from './component/TabsPage';
 import { HomePage } from './page/HomePage';
-// import { TabsPage } from './page/TabsPage';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Router>
@@ -16,9 +15,9 @@ createRoot(document.getElementById('root') as HTMLElement).render(
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
         <Route path="home" element={<Navigate to="/" replace />} />
-        <Route path="tabs" element={<TabsList />}>
-          <Route index element={<TabsList />} />
-          <Route path=":tabId" element={<TabsList />} />
+        <Route path="tabs" element={<TabsPage />}>
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
         </Route>
         <Route path="*" element={<h1 className="title">Page not found</h1>} />
       </Route>

@@ -1,10 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import tabsFromServe from '../api/tabsFromServe.json';
 
-export const TabsList = () => {
+export const TabsPage = () => {
   const { tabId } = useParams<{ tabId: string }>();
-  const selectedTab = tabId;
-  const tabcontent = tabsFromServe.find(e => e.id === selectedTab)?.content;
+  const tabContent = tabsFromServe.find(e => e.id === tabId)?.content;
 
   return (
     <>
@@ -16,7 +15,7 @@ export const TabsList = () => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={tab.id === selectedTab ? 'is-active' : ''}
+              className={tab.id === tabId ? 'is-active' : ''}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
@@ -25,7 +24,7 @@ export const TabsList = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabcontent || 'Please select a tab'}
+        {tabContent || 'Please select a tab'}
       </div>
     </>
   );
