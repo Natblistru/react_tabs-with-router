@@ -1,8 +1,8 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { TabsList } from './component/TabsList';
-import { NavLink, Route, Routes } from 'react-router-dom';
+// import { TabsList } from './component/TabsList';
+import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 
 const getLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -28,11 +28,7 @@ export const App = () => (
 
     <div className="section">
       <div className="container">
-        <Routes>
-          <Route path="/" element={<h1 className="title">Home page</h1>} />
-          <Route path="/tabs/*" element={<TabsList />} />
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
-        </Routes>
+        <Outlet />
       </div>
     </div>
   </>

@@ -8,6 +8,8 @@ export const TabsList = () => {
 
   return (
     <>
+      <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabsFromServe.map(tab => (
@@ -16,7 +18,7 @@ export const TabsList = () => {
               data-cy="Tab"
               className={tab.id === selectedTab ? 'is-active' : ''}
             >
-              <Link to={`#/tabs/${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
