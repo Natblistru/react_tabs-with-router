@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { tabs } from '../App';
 import { TabContent } from '../components/TabContent';
 
@@ -7,7 +7,7 @@ export const TabsPage = () => {
   const { tabId } = useParams();
   const [selectedTab, setSelectedTab] = useState<string | null>(tabId || null);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (tabId && tabId !== selectedTab) {
@@ -15,10 +15,10 @@ export const TabsPage = () => {
     }
   }, [tabId, selectedTab]);
 
-  const handleTabChange = (newTabId: string) => {
-    navigate(`/tabs/${newTabId}`, { replace: true });
-    setSelectedTab(newTabId);
-  };
+  // const handleTabChange = (newTabId: string) => {
+  //   navigate(`/tabs/${newTabId}`, { replace: true });
+  //   setSelectedTab(newTabId);
+  // };
 
   return (
     <div className="section">
@@ -32,12 +32,7 @@ export const TabsPage = () => {
                 key={tab.id}
                 className={tab.id === selectedTab ? 'is-active' : ''}
               >
-                <Link
-                  to={`/tabs/${tab.id}`}
-                  onClick={() => handleTabChange(tab.id)}
-                >
-                  {tab.title}
-                </Link>
+                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </li>
             ))}
           </ul>
