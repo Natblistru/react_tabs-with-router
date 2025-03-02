@@ -11,7 +11,7 @@ export const TabItem: React.FC<Props> = ({ tab }) => {
   const { tabId } = useParams();
   const { title, id } = tab;
 
-  const validActiveTabId = tabId ? tabId : '';
+  const validActiveTabId = tabId ? tabId.toString() : '';
 
   return (
     <li

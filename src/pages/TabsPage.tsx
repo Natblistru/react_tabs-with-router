@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 export const TabsPage: React.FC = () => {
   const { tabs } = useContext(TabsContext);
   const { tabId } = useParams();
-  const validActiveTabId = tabId ? tabId : '';
+  const validActiveTabId = tabId ? tabId.toString() : '';
   const contentTab = tabs.find(tab => tab.id === validActiveTabId);
 
   return (
