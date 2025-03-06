@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { TabsList } from "../components/TabsList";
-import { TabsContext } from "../store/TabsContext";
-import { useParams } from "react-router-dom";
+import { useContext } from 'react';
+import { TabsList } from '../components/TabsList';
+import { TabsContext } from '../store/TabsContext';
+import { useParams } from 'react-router-dom';
 
 export const TabsPage = () => {
   const { tabs } = useContext(TabsContext);
   const { tabId } = useParams();
-  const selectedTab = tabs.find((tab) => tab.id === tabId);
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -23,7 +23,6 @@ export const TabsPage = () => {
           Please select a tab
         </div>
       )}
-
     </>
   );
-}
+};

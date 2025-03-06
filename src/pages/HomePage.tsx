@@ -1,5 +1,3 @@
-import { TabsList } from "../components/TabsList";
-
 export const HomePage = () => {
   return (
     <>

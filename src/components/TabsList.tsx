@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { TabsContext } from "../store/TabsContext";
-import { TabItem } from "./TabItem";
+import { useContext } from 'react';
+import { TabsContext } from '../store/TabsContext';
+import { TabItem } from './TabItem';
 
 export const TabsList: React.FC = () => {
   const { tabs } = useContext(TabsContext);
@@ -13,5 +13,5 @@ export const TabsList: React.FC = () => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};

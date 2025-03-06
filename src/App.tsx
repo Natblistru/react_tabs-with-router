@@ -1,17 +1,8 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import { useContext } from 'react';
-import { TabsContext } from './store/TabsContext';
-import { Tab } from './types/Tab';
+import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
 
 const getClassActive = ({ isActive }: { isActive: boolean }) =>
   classNames('navbar-item', {
@@ -19,7 +10,6 @@ const getClassActive = ({ isActive }: { isActive: boolean }) =>
   });
 
 export const App = () => {
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -45,6 +35,5 @@ export const App = () => {
         </div>
       </div>
     </>
-  )
-}
-
+  );
+};
