@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 export const Tabs = () => {
   const tabs = [
@@ -7,8 +7,8 @@ export const Tabs = () => {
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
 
-  const location = useLocation();
-  const path = location.pathname.split('/').pop();
+
+  
   const { tabId } = useParams();
   const tabContent = tabId ? tabs.find(t => t.id === tabId)?.content : null;
 
@@ -22,7 +22,7 @@ export const Tabs = () => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={path === tab.id ? 'is-active' : ''}
+              className={tabId === tab.id ? 'is-active' : ''}
             >
               <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
             </li>
