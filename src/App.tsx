@@ -1,8 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-
-import { useState } from 'react';
 import { Nav } from './components/Nav';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
@@ -14,8 +12,6 @@ const tabs = [
 ];
 
 export const App = () => {
-  const [activeTabId, setActiveTabId] = useState('');
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -35,27 +31,9 @@ export const App = () => {
         />
 
         <Route path="tabs">
-          <Route
-            index
-            element={
-              <TabsPage
-                tabs={tabs}
-                activeTabId={activeTabId}
-                setActiveTabId={setActiveTabId}
-              />
-            }
-          />
+          <Route index element={<TabsPage tabs={tabs} />} />
 
-          <Route
-            path=":tabId"
-            element={
-              <TabsPage
-                tabs={tabs}
-                activeTabId={activeTabId}
-                setActiveTabId={setActiveTabId}
-              />
-            }
-          />
+          <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
         </Route>
 
         <Route

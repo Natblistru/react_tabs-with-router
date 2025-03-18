@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams, Outlet } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 import classNames from 'classnames';
 
 type Props = {
   tabs: Tab[];
-  activeTabId: string;
-  setActiveTabId: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export const TabsPage: React.FC<Props> = ({
-  tabs,
-  activeTabId,
-  setActiveTabId,
-}) => {
+export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
+  const [activeTabId, setActiveTabId] = useState('');
   const currentTab = tabs.find(tab => tab.id === activeTabId);
+  const tabIds = tabs.map(tab => tab.id);
 
   useEffect(() => {
     if (tabId) {
-      setActiveTabId(tabId);
+      if (tabIds.includes(tabId)) {
+        setActiveTabId(tabId);
+      } else {
+        setActiveTabId('');
+      }
     }
-  }, [tabId, setActiveTabId]);
+  }, [tabId, setActiveTabId, tabIds]);
 
   return (
     <>
