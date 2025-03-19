@@ -1,4 +1,11 @@
-import { Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Link,
+  useParams,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -50,7 +57,8 @@ const NotFoundPage = () => (
 );
 
 export const App = () => {
-  const currentPath = window.location.hash.replace('#', '') || '/';
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
     <>
