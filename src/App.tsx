@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Link, Routes, Route, useLocation } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -9,29 +9,20 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const Home = () => {
-  return (
-    <div>
-      <h1 className="title">Home page</h1>
-    </div>
-  );
-};
+const Home = () => (
+  <div>
+    <h1 className="title">Home page</h1>
+  </div>
+);
 
 const Tabs = () => {
-  const location = useLocation();
-  const isTabSelected = tabs.some(tab => location.pathname.includes(tab.id));
-
   return (
     <div>
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className={location.pathname.includes(tab.id) ? 'is-active' : ''}
-              data-cy="Tab"
-            >
+            <li key={tab.id} data-cy="Tab">
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
@@ -39,8 +30,6 @@ const Tabs = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {!isTabSelected && <div>Please select a tab</div>}{' '}
-        {/* Виводимо текст, якщо вкладка не вибрана */}
         <Routes>
           {tabs.map(tab => (
             <Route
@@ -55,17 +44,14 @@ const Tabs = () => {
   );
 };
 
-const NotFound = () => {
-  return (
-    <div>
-      <h1>Page Not Found</h1>
-    </div>
-  );
-};
+const NotFound = () => (
+  <div>
+    <h1>Page Not Found</h1>
+  </div>
+);
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
@@ -86,7 +72,16 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tabs/*" element={<Tabs />} />
+          <Route path="tabs" element={<Tabs />}>
+            {/* Вкладені маршрути для кожної вкладки */}
+            {tabs.map(tab => (
+              <Route
+                key={tab.id}
+                path={tab.id}
+                element={<div>{tab.content}</div>}
+              />
+            ))}
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
