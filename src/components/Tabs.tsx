@@ -3,9 +3,8 @@ import { Tab } from '../types/Tab';
 import { Link, useParams } from 'react-router-dom';
 type Props = {
   tabs: Tab[];
-  onTabSelected: (tabId: string) => void;
 };
-export const Tabs: React.FC<Props> = ({ tabs, onTabSelected }) => {
+export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId: activeTabId } = useParams<{ tabId: string }>();
 
   return (
@@ -23,7 +22,6 @@ export const Tabs: React.FC<Props> = ({ tabs, onTabSelected }) => {
               <Link
                 to={`/tabs/${id}`}
                 data-cy="TabLink"
-                onClick={() => onTabSelected(id)}
               >
                 {title}
               </Link>

@@ -18,7 +18,7 @@ export const TabsPage = () => {
     <div className="section">
       <div className="container">
         <h1 className="title">Tabs page</h1>
-        <Tabs tabs={tabs} onTabSelected={() => {}} />
+        <Tabs tabs={tabs} />
         <br />
         <div className="block" data-cy="TabContent">
           {activeTab ? activeTab.content : 'Please select a tab'}
