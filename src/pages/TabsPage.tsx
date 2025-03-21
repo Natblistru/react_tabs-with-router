@@ -1,4 +1,3 @@
-
 import 'bulma/css/bulma.css';
 import { Tabs } from '../components/Tabs';
 
@@ -18,7 +17,7 @@ export const TabsPage = () => {
   return (
     <div className="section">
       <div className="container">
-        <h1 className="title">Tabs Page</h1>
+        <h1 className="title">Tabs page</h1>
         <Tabs tabs={tabs} onTabSelected={() => {}} />
         <br />
         <div className="block" data-cy="TabContent">
