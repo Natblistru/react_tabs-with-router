@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import 'bulma/css/bulma.css';
 import { Tabs } from '../components/Tabs';
 
@@ -8,25 +8,22 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+import { useParams } from 'react-router-dom';
+
 export const TabsPage = () => {
+  const { tabId } = useParams<{ tabId: string }>();
 
-  const [activeTabId, setActiveTabId] = useState<string | null>(null);
-
-  const activeTab = activeTabId
-    ? tabs.find(tab => tab.id === activeTabId)
-    : null;
+  const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="section">
-      <h1 className="title">Tabs Page</h1>
-      <Tabs
-        tabs={tabs}
-        activeTabId={activeTabId}
-        onTabSelected={setActiveTabId}
-      />
-      <br />
-      <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
+      <div className="container">
+        <h1 className="title">Tabs Page</h1>
+        <Tabs tabs={tabs} onTabSelected={() => {}} />
+        <br />
+        <div className="block" data-cy="TabContent">
+          {activeTab ? activeTab.content : 'Please select a tab'}
+        </div>
       </div>
     </div>
   );

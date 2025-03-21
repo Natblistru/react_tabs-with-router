@@ -1,15 +1,12 @@
 import cn from 'classnames';
 import { Tab } from '../types/Tab';
 import { Link, useParams } from 'react-router-dom';
-
 type Props = {
   tabs: Tab[];
-  activeTabId: string;
   onTabSelected: (tabId: string) => void;
 };
-
-export const Tabs: React.FC<Props> = ({ tabs, activeTabId, onTabSelected }) => {
-  const { id: paramTabId } = useParams<{ id: string }>();
+export const Tabs: React.FC<Props> = ({ tabs, onTabSelected }) => {
+  const { tabId: activeTabId } = useParams<{ tabId: string }>();
 
   return (
     <div data-cy="TabsComponent">
@@ -19,7 +16,7 @@ export const Tabs: React.FC<Props> = ({ tabs, activeTabId, onTabSelected }) => {
             <li
               key={id}
               className={cn('', {
-                'is-active': paramTabId === id.toString() || id === activeTabId,
+                'is-active': id === activeTabId,
               })}
               data-cy="Tab"
             >
