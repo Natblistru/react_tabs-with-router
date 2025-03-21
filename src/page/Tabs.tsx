@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Navigate, NavLink, Outlet, useParams } from 'react-router-dom';
+import { Link, Navigate, Outlet, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -28,7 +28,7 @@ export const Tabs = () => {
                 data-cy="Tab"
                 className={classNames({ 'is-active': tab.id === tabId })}
               >
-                <NavLink to={tab.id}>{tab.title}</NavLink>
+                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </li>
             );
           })}
@@ -36,10 +36,9 @@ export const Tabs = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        <Outlet />
-        {tabs.find(tab => tab.id === tabId)?.content && (
+        {tabs.find(tab => tab.id === tabId)?.content ? (
           <p>{tabs.find(tab => tab.id === tabId)?.content}</p>
-        )}
+        ): <Outlet/>}
       </div>
     </>
   );
