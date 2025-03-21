@@ -15,12 +15,12 @@ export const Root = () => {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          <Route path="tabs/:tabId?">
+          <Route path="tabs">
             <Route index element={<Tabs />} />
-            <Route path=":tabId?" element={<Tabs />} />
+            <Route path=":tabId" element={<Tabs />} />
           </Route>
-          <Route path="*" element={<PageNotFound />} />
           <Route path="home" element={<Navigate to="/" />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </Router>
