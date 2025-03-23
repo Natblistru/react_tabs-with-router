@@ -12,13 +12,12 @@ export const App = () => {
       <Navigation />
       <div style={{ paddingTop: '60px' }}>
         {' '}
-        {/* Відступ для врахування навігації */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="tabs">
             <Route index element={<TabsPage />} />
-            <Route path=":tabId" element={<TabsPage />} />
+            <Route path=":tabId?" element={<TabsPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
