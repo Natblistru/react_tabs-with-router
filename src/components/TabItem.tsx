@@ -11,7 +11,7 @@ export const TabItem: React.FC<Props> = ({ tab }) => {
 
   return (
     <li data-cy="Tab" className={classNames({ 'is-active': tabId === tab.id })}>
-      <Link to={`../${tab.id}`}>{tab.title}</Link>
+      <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
     </li>
   );
 };
