@@ -28,7 +28,7 @@ export const App = () => {
       </nav>
 
       <div className="section">
-        <div className="container">
+        <div className="container mt-5">
           <Outlet />
         </div>
       </div>
