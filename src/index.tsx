@@ -14,7 +14,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path=":tabId" element={<TabsPage />} />
           <Route path="*" element={<Title text="Page not found" />} />
         </Route>
-        <Route path="home" element={<Navigate to={'..'} />} />
+        <Route path="home" element={<Navigate to={'/'} />} />
         <Route path="*" element={<Title text="Page not found" />} />
       </Route>
     </Routes>
