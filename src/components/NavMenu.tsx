@@ -16,7 +16,7 @@ const NavMenu = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/#" className={getClassName}>
+          <NavLink to="/" className={getClassName}>
             Home
           </NavLink>
           <NavLink to="/tabs" className={getClassName}>
