@@ -59,15 +59,7 @@ export const App = () => {
           {pathname === '/home' && <Navigate to="/" />}
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
-            <Route
-              path="tabs"
-              element={
-                <>
-                  <h1 className="title">Tabs page</h1>
-                  <Tabs tabs={tabs} />
-                </>
-              }
-            >
+            <Route path="/tabs" element={<Tabs tabs={tabs} />}>
               <Route path=":tabId" element={<Tabs tabs={tabs} />} />
             </Route>
             <Route
