@@ -1,5 +1,5 @@
 import { TabsList } from "../components/TabsList";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 
 
 const tabs = [
@@ -10,9 +10,8 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  const navigate = useNavigate();
 
   return (
-    <TabsList tabs={tabs} activeTabId={tabId || ''} onTabSelected={(id) => navigate(`/tabs/${id}`)} />
+    <TabsList tabs={tabs} activeTabId={tabId || ''} />
   );
 };

@@ -1,15 +1,15 @@
 import { Tab } from "../types/Tab";
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 
 
 type Props = {
   tabs: Tab[];
   activeTabId: string;
-  onTabSelected: (id: string) => void;
 }
 
-export const TabsList: React.FC<Props> = ({ tabs, onTabSelected, activeTabId }) => {
+export const TabsList: React.FC<Props> = ({ tabs, activeTabId }) => {
 
 
   const activeTab = tabs.find((tab) => tab.id === activeTabId);
@@ -27,12 +27,8 @@ export const TabsList: React.FC<Props> = ({ tabs, onTabSelected, activeTabId }) 
 
               data-cy="Tab"
               className={cn({ "is-active": tab.id === activeTabId })}>
-              <a
-                href={`#/tabs/${tab.id}`}
-                onClick={() => {
-                  onTabSelected(tab.id);
-                }}
-              >{tab.title}</a>
+              <Link to={`/tabs/${tab.id}`}
+              >{tab.title}</Link>
           </li>
           ))}
         </ul>
