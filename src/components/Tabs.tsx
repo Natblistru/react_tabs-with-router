@@ -1,7 +1,18 @@
-import React from "react";
+import React from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 
-export const Tabs = () => {
-  return <div className="block" data-cy="TabContent">
-  Please select a tab
-</div>
+type Props = {
+  content?: string;
+};
+
+export const Tabs: React.FC<Props> = ({ content }) => {
+  const { tabId } = useParams();
+
+  console.log(tabId);
+
+  return (
+    <div className="block" data-cy="TabContent">
+      {content}
+    </div>
+  );
 };
