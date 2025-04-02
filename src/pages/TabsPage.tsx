@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Tabs } from '../components/Tabs';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 const tabs = [
@@ -10,17 +10,16 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const [selectedId, setSelectedId] = useState('tab-1');
-  let content = tabs.find(tab => tab.id === selectedId)?.content;
   const { tabId } = useParams();
+  let content = tabs.find(tab => tab.id === tabId)?.content;
 
-  if (tabId && tabId !== selectedId) {
+  if (!tabId) {
     content = 'please select a tab';
   }
 
-  useEffect(() => {
-    setSelectedId(tabId || 'tab-1');
-  }, [tabId]);
+  // useEffect(() => {
+  //   setSelectedId(tabId || 'tab-1');
+  // }, [tabId]);
 
   return (
     <div className="section">
@@ -33,15 +32,9 @@ export const TabsPage = () => {
               <li
                 key={tab.id}
                 data-cy="Tab"
-                className={classNames({ 'is-active': selectedId === tab.id })}
+                className={classNames({ 'is-active': tabId === tab.id })}
               >
-                <NavLink
-                  to={`${tab.id}`}
-                  onClick={() => setSelectedId(tab.id)}
-                  style={() => ({ color: tab.id === selectedId ? 'pink' : '' })}
-                >
-                  {tab.title}
-                </NavLink>
+                <Link to={`${tab.id}`}>{tab.title}</Link>
               </li>
             ))}
           </ul>
