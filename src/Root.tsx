@@ -12,13 +12,12 @@ export const Root = () => (
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
-        <Route path="tabs">
-          router
-          <Route index element={<TabsPage />} />
+        <Route path="tabs" element={<TabsPage />}>
           <Route path=":tabId" element={<Tabs />} />
         </Route>
-        <Route path="*" element={<h1>Page not found</h1>} />
       </Route>
+
+      <Route path="*" element={<h1>Page not found</h1>} />
     </Routes>
   </>
 );

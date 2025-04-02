@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Tabs } from '../components/Tabs';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 const tabs = [
@@ -11,7 +11,17 @@ const tabs = [
 
 export const TabsPage = () => {
   const [selectedId, setSelectedId] = useState('tab-1');
-  const content = tabs.find(tab => tab.id === selectedId)?.content;
+  let content = tabs.find(tab => tab.id === selectedId)?.content;
+  const { tabId } = useParams();
+
+  if (tabId && tabId !== selectedId) {
+    content = 'please select a tab';
+  }
+
+  useEffect(() => {
+    setSelectedId(tabId || 'tab-1');
+  }, [selectedId]);
+
   return (
     <div className="section">
       <div className="container">
@@ -26,7 +36,7 @@ export const TabsPage = () => {
                 className={classNames({ 'is-active': selectedId === tab.id })}
               >
                 <NavLink
-                  to={`#/${tab.id}`}
+                  to={`${tab.id}`}
                   onClick={() => setSelectedId(tab.id)}
                   style={() => ({ color: tab.id === selectedId ? 'pink' : '' })}
                 >
