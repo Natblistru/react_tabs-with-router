@@ -20,7 +20,7 @@ export const TabsPage = () => {
 
   useEffect(() => {
     setSelectedId(tabId || 'tab-1');
-  }, [selectedId]);
+  }, [tabId]);
 
   return (
     <div className="section">
