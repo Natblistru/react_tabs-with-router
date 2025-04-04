@@ -1,7 +1,8 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { App } from './App';
-import { HomePage } from './components/HomePage';
-import { TabsPage } from './components/TabsPage';
+import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export const Root = () => (
   <HashRouter>
@@ -13,7 +14,7 @@ export const Root = () => (
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
-        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   </HashRouter>
