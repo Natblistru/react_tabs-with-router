@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { tabs } from '../data/tabs';
+import tabs from '../data/tabs.json';
 import { Tab } from '../components/Tab';
 
 export const TabsPage = () => {
