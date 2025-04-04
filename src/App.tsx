@@ -1,10 +1,9 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
-import { NavLink } from './components/NavLink';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -12,20 +11,41 @@ import { NavLink } from './components/NavLink';
 //   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 // ];
 
-export const App = () => (
-  <>
+const Navigation = () => {
+  const location = useLocation();
+
+  return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/tabs">Tabs</NavLink>
+          <Link
+            to="/"
+            className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/tabs"
+            className={`navbar-item ${
+              location.pathname === '/tabs' || location.pathname.startsWith('/tabs/')
+                ? 'is-active'
+                : ''
+            }`}
+          >
+            Tabs
+          </Link>
         </div>
       </div>
     </nav>
+  );
+};
 
+export const App = () => (
+  <>
+    <Navigation />
     <div className="section">
       <div className="container">
         <Routes>
