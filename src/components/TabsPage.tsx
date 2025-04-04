@@ -10,7 +10,6 @@ const tabs: Tab[] = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  const currentTabId = tabId || 0;
   const currentTab = tabs.find((tab: Tab) => tab.id === tabId);
 
   return (
@@ -21,7 +20,7 @@ export const TabsPage = () => {
           {tabs.map(tab => (
             <li
               className={cn({
-                'is-active': currentTabId === tab.id,
+                'is-active': tabId === tab.id,
               })}
               data-cy="Tab"
               key={tab.id}
