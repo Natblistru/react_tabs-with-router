@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 import { Tabs } from '../components/Tabs';
-import { Link, NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 const tabs = [
@@ -17,10 +16,6 @@ export const TabsPage = () => {
     content = 'please select a tab';
   }
 
-  // useEffect(() => {
-  //   setSelectedId(tabId || 'tab-1');
-  // }, [tabId]);
-
   return (
     <div className="section">
       <div className="container">
@@ -34,7 +29,9 @@ export const TabsPage = () => {
                 data-cy="Tab"
                 className={classNames({ 'is-active': tabId === tab.id })}
               >
-                <Link to={`${tab.id}`}>{tab.title}</Link>
+                <Link to={`/tabs/${tab.id}`} replace className="is-active">
+                  {tab.title}
+                </Link>
               </li>
             ))}
           </ul>
