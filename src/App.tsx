@@ -1,13 +1,10 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import classNames from 'classnames';
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import classNames from 'classnames';
 
-const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-  classNames('navbar-item', {
-    'is-active': isActive,
-  });
 
 export const App = () => (
   <>
@@ -18,11 +15,21 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              classNames('navbar-item', { 'is-active': isActive })
+            }
+            >
             Home
           </NavLink>
 
-          <NavLink to="/tabs" className={getLinkClass}>
+          <NavLink
+            to="/tabs"
+            className={({ isActive }) =>
+              classNames('navbar-item', { 'is-active': isActive })
+            }
+            >
             Tabs
           </NavLink>
         </div>
