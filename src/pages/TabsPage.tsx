@@ -26,7 +26,7 @@ export const TabsPage = () => {
                 className={cn({ 'is-active': currTabRoute?.id === tab.id })}
                 key={tab.id}
               >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+                <Link to={`../${tab.id}`}>{tab.title}</Link>
               </li>
             );
           })}
