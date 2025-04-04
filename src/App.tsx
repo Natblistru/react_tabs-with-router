@@ -5,6 +5,11 @@ import { NavLink, Outlet } from 'react-router-dom';
 import cn from 'classnames';
 
 export const App = () => {
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    cn('navbar-item', {
+      'is-active': isActive,
+    });
+
   return (
     <>
       <html className="has-navbar-fixed-top" />
@@ -14,20 +19,10 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
-              to=".."
-              className={({ isActive }) =>
-                cn('navbar-item', { 'is-active': isActive })
-              }
-            >
+            <NavLink to=".." className={getLinkClass}>
               Home
             </NavLink>
-            <NavLink
-              to="/tabs"
-              className={({ isActive }) =>
-                cn('navbar-item', { 'is-active': isActive })
-              }
-            >
+            <NavLink to="/tabs" className={getLinkClass}>
               Tabs
             </NavLink>
           </div>
