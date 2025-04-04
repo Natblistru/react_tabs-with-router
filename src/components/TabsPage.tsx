@@ -35,7 +35,9 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {currentTab?.content ? currentTab?.content : 'Please select a tab'}
+        {typeof currentTab !== 'undefined'
+          ? currentTab.content
+          : 'Please select a tab'}
       </div>
     </div>
   );

@@ -1,15 +1,11 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import cn from 'classnames';
-import { NavLink, Outlet } from 'react-router-dom';
-
-const getActiveClass = ({ isActive }: { isActive: boolean }) =>
-  cn('navbar-item', {
-    'is-active': isActive,
-  });
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export const App = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <nav
@@ -18,12 +14,18 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={getActiveClass}>
+            <Link
+              to="/"
+              className={`navbar-item ${pathname === '/' ? 'is-active' : ''}`}
+            >
               Home
-            </NavLink>
-            <NavLink to="/tabs" className={getActiveClass}>
+            </Link>
+            <Link
+              to="/tabs"
+              className={`navbar-item ${pathname.startsWith('/tabs') ? 'is-active' : ''}`}
+            >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
