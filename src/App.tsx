@@ -21,6 +21,12 @@ const Tabs = () => {
   const { tabId } = useParams();
   const activeTab = tabId || '';
 
+  // Verifica se o tabId corresponde a uma guia válida
+  const isValidTab = tabs.some(tab => tab.id === activeTab);
+
+  // Encontra o tab correspondente
+  const activeTabContent = tabs.find(tab => tab.id === activeTab);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
@@ -41,8 +47,9 @@ const Tabs = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === activeTab)?.content ||
-          'Please select a tab'}
+        {isValidTab && activeTabContent
+          ? activeTabContent.content
+          : 'Please select a tab'}
       </div>
     </>
   );
