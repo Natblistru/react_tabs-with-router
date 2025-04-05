@@ -10,9 +10,11 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  let content = tabs.find(tab => tab.id === tabId)?.content || 'Please select a tab';
+  const content =
+    tabs.find(tab => tab.id === tabId)?.content || 'Please select a tab';
   const isValidTabId = tabs.some(tab => tab.id === tabId);
   const navigate = useNavigate();
+
   if (!isValidTabId) {
     navigate('/tabs', { replace: true });
   }
@@ -30,7 +32,7 @@ export const TabsPage = () => {
                 data-cy="Tab"
                 className={classNames({ 'is-active': tabId === tab.id })}
               >
-                <Link to={`/tabs/${tab.id}`} replace className="is-active">
+                <Link to={`/tabs/${tab.id}`} replace>
                   {tab.title}
                 </Link>
               </li>
