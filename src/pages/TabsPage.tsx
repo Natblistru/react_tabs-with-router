@@ -1,5 +1,5 @@
 import { Tabs } from '../components/Tabs';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 const tabs = [
@@ -10,10 +10,11 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  let content = tabs.find(tab => tab.id === tabId)?.content;
-
-  if (!tabId) {
-    content = 'please select a tab';
+  let content = tabs.find(tab => tab.id === tabId)?.content || 'Please select a tab';
+  const isValidTabId = tabs.some(tab => tab.id === tabId);
+  const navigate = useNavigate();
+  if (!isValidTabId) {
+    navigate('/tabs', { replace: true });
   }
 
   return (
