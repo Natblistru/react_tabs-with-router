@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { TabsContext } from "../contexts/TabsContext";
-import { useParams } from "react-router-dom";
+import { useContext } from 'react';
+import { TabsContext } from '../contexts/TabsContext';
+import { useParams } from 'react-router-dom';
 
 export const SelectedTab = () => {
   const { tabs } = useContext(TabsContext);
@@ -10,9 +10,7 @@ export const SelectedTab = () => {
 
   return (
     <div className="block" data-cy="TabContent">
-      {tabId && selectedTab
-        ? selectedTab.content
-        : "Please select a tab"}
+      {tabId && selectedTab ? selectedTab.content : 'Please select a tab'}
     </div>
-  )
-}
+  );
+};

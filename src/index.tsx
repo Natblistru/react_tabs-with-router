@@ -3,5 +3,6 @@ import { Root } from './Root';
 
 const container = document.getElementById('root') as HTMLElement;
 
-createRoot(container)
-  .render(<Root />);
+document.documentElement.classList.add('has-navbar-fixed-top');
+
+createRoot(container).render(<Root />);

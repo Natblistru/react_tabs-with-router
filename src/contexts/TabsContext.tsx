@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { Tab } from "../types/Tab";
+import { createContext } from 'react';
+import { Tab } from '../types/Tab';
 
 type TabsContextType = {
   tabs: Tab[];
@@ -18,12 +18,7 @@ export const TabsContext = createContext<TabsContextType>({
 });
 
 export const TabsProvider = ({ children }: { children: React.ReactNode }) => {
-
   return (
-    <TabsContext.Provider
-      value={{ tabs }}
-    >
-      {children}
-    </TabsContext.Provider>
+    <TabsContext.Provider value={{ tabs }}>{children}</TabsContext.Provider>
   );
 };

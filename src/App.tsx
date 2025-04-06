@@ -4,9 +4,10 @@ import './App.scss';
 import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 
-const getlinkClass = ({ isActive }: { isActive: boolean }) => classNames("navbar-item", {
-  "is-active": isActive,
-})
+const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+  classNames('navbar-item', {
+    'is-active': isActive,
+  });
 
 export const App = () => {
   return (
@@ -18,26 +19,20 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
-              to="/"
-              className={getlinkClass}
-            >
+            <NavLink to="/" className={getLinkClass}>
               Home
             </NavLink>
 
-            <NavLink
-              to="/tabs"
-              className={getlinkClass}
-            >
+            <NavLink to="/tabs" className={getLinkClass}>
               Tabs
             </NavLink>
           </div>
         </div>
-      </nav >
+      </nav>
 
       <div className="section">
         <Outlet />
       </div>
     </>
-  )
+  );
 };

@@ -10,17 +10,16 @@ export const Root = () => (
   <HashRouter>
     <TabsProvider>
       <Routes>
-        <Route path='/' element={<App />}>
+        <Route path="/" element={<App />}>
           <Route index element={<HomePage />}></Route>
-          <Route path='home' element={<Navigate to="/" replace />}></Route>
-          <Route path="tabs" >
+          <Route path="home" element={<Navigate to="/" replace />}></Route>
+          <Route path="tabs">
             <Route path=":tabId?" element={<TabsPage />}>
-              <Route path='' element={<SelectedTab />}></Route>
+              <Route index element={<SelectedTab />}></Route>
             </Route>
           </Route>
-          <Route path='*' element={<NotFound />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Route>
-
       </Routes>
     </TabsProvider>
   </HashRouter>
