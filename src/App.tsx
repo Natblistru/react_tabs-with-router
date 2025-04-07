@@ -5,7 +5,6 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-
 export const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -20,7 +19,7 @@ export const App = () => (
             className={({ isActive }) =>
               classNames('navbar-item', { 'is-active': isActive })
             }
-            >
+          >
             Home
           </NavLink>
 
@@ -29,7 +28,7 @@ export const App = () => (
             className={({ isActive }) =>
               classNames('navbar-item', { 'is-active': isActive })
             }
-            >
+          >
             Tabs
           </NavLink>
         </div>
