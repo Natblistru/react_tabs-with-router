@@ -22,6 +22,7 @@ export const Tabs = () => {
               data-cy="Tab"
               className={classNames({ 'is-active': tab.id === tabId })}
             >
+              {/* here is <Link><Link/> about AI is asking */}
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}

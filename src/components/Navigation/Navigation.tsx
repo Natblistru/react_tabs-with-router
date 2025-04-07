@@ -12,6 +12,7 @@ export const Navigation = () => {
     >
       <div className="container">
         <div className="navbar-brand">
+          {/* here is <NavLink> because is-active class is added to the current tag, not PARENT!!! */}
           <NavLink to="/" className={getLinkClass}>
             Home
           </NavLink>
