@@ -1,5 +1,5 @@
-import { Link, useParams } from "react-router-dom";
-import { Tab } from "../types/Tab";
+import { Link, useParams } from 'react-router-dom';
+import { Tab } from '../types/Tab';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,8 +8,7 @@ const tabs: Tab[] = [
 ];
 
 export const TabsPage = () => {
-
-  const { tabId } = useParams()
+  const { tabId } = useParams();
   const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
