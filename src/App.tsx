@@ -28,7 +28,9 @@ export const App = () => {
             <Link
               to={RouteParts.Tabs}
               className={classNames('navbar-item', {
-                'is-active': location.pathname === RouteParts.Tabs,
+                'is-active':
+                  location.pathname === RouteParts.Tabs ||
+                  location.pathname.startsWith(RouteParts.Tabs),
               })}
             >
               Tabs

@@ -1,30 +1,34 @@
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { useParams } from 'react-router-dom';
+import { TabsList } from '../../components/TabList';
+
+import { Tab } from '../../types/Tab';
+
+const tabs: Tab[] = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
 export const TabsPage = () => {
+  const { tabId } = useParams();
+  // const navigator = useNavigate();
+
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  // useEffect(() => {
+  //   if (!selectedTab && tabs.length) {
+  //     navigator(tabs[0].id);
+  //   }
+  // }, [navigator, selectedTab]);
+
   return (
     <div className="container">
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
-          <li data-cy="Tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="Tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="Tab">
-            <a href="#/">Tab 3</a>
-          </li>
-        </ul>
-      </div>
+      <TabsList tabList={tabs} currentTabId={selectedTab?.id} />
 
       <div className="block" data-cy="TabContent">
-        Please select a tab
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
     </div>
   );
