@@ -11,15 +11,8 @@ const tabs: Tab[] = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  // const navigator = useNavigate();
 
   const selectedTab = tabs.find(tab => tab.id === tabId);
-
-  // useEffect(() => {
-  //   if (!selectedTab && tabs.length) {
-  //     navigator(tabs[0].id);
-  //   }
-  // }, [navigator, selectedTab]);
 
   return (
     <div className="container">

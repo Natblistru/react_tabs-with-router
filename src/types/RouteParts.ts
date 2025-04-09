@@ -1,5 +1,7 @@
 export enum RouteParts {
-  Home = '/',
+  Root = '/',
+  Home = '/home',
   Tabs = '/tabs',
-  TabId = 'tabId',
+  TabId = ':tabId',
+  NotFound = '*',
 }

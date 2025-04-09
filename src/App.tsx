@@ -1,18 +1,11 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { RouteParts as RoutesParts } from './types/RouteParts';
 import classNames from 'classnames';
-import { ReactNode } from 'react';
 
-type Props = {
-  children: ReactNode;
-};
-
-export const App = ({ children }: Props) => {
-  const location = useLocation();
-
+export const App = () => {
   return (
     <>
       <nav
@@ -21,29 +14,29 @@ export const App = ({ children }: Props) => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
-              to={RoutesParts.Home}
-              className={classNames('navbar-item', {
-                'is-active': location.pathname === RoutesParts.Home,
-              })}
+            <NavLink
+              to={RoutesParts.Root}
+              className={({ isActive }) =>
+                classNames('navbar-item', { 'is-active': isActive })
+              }
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to={RoutesParts.Tabs}
-              className={classNames('navbar-item', {
-                'is-active':
-                  location.pathname === RoutesParts.Tabs ||
-                  location.pathname.startsWith(RoutesParts.Tabs),
-              })}
+              className={({ isActive }) =>
+                classNames('navbar-item', { 'is-active': isActive })
+              }
             >
               Tabs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
 
-      <div className="section">{children}</div>
+      <div className="section">
+        <Outlet />
+      </div>
     </>
   );
 };
