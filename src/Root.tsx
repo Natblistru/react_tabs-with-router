@@ -8,16 +8,16 @@ import { UnknownPage } from './pages/UnknownPage';
 export const Root = () => {
   return (
     <HashRouter>
-      <Routes>
-        <Route path={RouteParts.Home} element={<App />}>
-          <Route index element={<HomePage />} />
+      <App>
+        <Routes>
+          <Route path={RouteParts.Home} element={<HomePage />} />
           <Route path={RouteParts.Tabs}>
             <Route index element={<TabsPage />} />
-            <Route path={`:${RouteParts.TabId}?`} element={<TabsPage />} />
+            <Route path={`:${RouteParts.TabId}`} element={<TabsPage />} />
           </Route>
           <Route path="*" element={<UnknownPage />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </App>
     </HashRouter>
   );
 };
