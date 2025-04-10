@@ -10,6 +10,7 @@ const tabs = [
 
 export const Tabs = () => {
   const { tabId } = useParams();
+  const tab = tabs.find(t => t.id === tabId);
 
   return (
     <>
@@ -17,16 +18,20 @@ export const Tabs = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map(t => (
             <li
-              key={tab.id}
+              key={t.id}
               data-cy="Tab"
-              className={classNames(tab.id === tabId ? 'is-active' : '')}
+              className={classNames(t.id === tabId ? 'is-active' : '')}
             >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${t.id}`}>{t.title}</Link>
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {tab ? tab.content : 'Please select a tab'}
       </div>
       <Outlet />
     </>
