@@ -17,7 +17,7 @@ export const NavBar = () => {
               key={tab.id}
               to={tab.id}
               className={classNames('navbar-item', {
-                'is-active': pathname == tab.id,
+                'is-active': pathname === tab.id,
               })}
             >
               {tab.title}

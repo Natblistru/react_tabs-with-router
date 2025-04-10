@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import { tabs } from '../routes/tabsOption';
 
@@ -17,7 +17,7 @@ export const TabsPage = () => {
               data-cy="Tab"
               className={classNames({ 'is-active': pathname.endsWith(tab.id) })}
             >
-              <NavLink to={'/tabs/' + tab.id}>{tab.title}</NavLink>
+              <Link to={'/tabs/' + tab.id}>{tab.title}</Link>
             </li>
           ))}
         </ul>
