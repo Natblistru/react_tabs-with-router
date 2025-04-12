@@ -10,7 +10,7 @@ import {
 import { NavBar } from './components/NavBar';
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
-import { PageNotFound } from './components/PageNotFoung';
+import { PageNotFound } from './components/PageNotFound';
 
 export const App = () => (
   <Router>
