@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import 'bulma/css/bulma.css';
+
 const NotFoundPage = () => (
   <div className="section">
     <div className="container">
@@ -6,9 +9,9 @@ const NotFoundPage = () => (
         The page you are looking for does not exist. Please check the URL or
         return to the homepage.
       </p>
-      <a href="/" className="button is-primary">
+      <Link to="/" className="button is-primary">
         Go Home
-      </a>
+      </Link>
     </div>
   </div>
 );

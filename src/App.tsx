@@ -5,18 +5,19 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import TabsPage from './pages/TabsPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { Link } from 'react-router-dom';
 
 const App = () => (
   <>
     <nav className="navbar is-light is-fixed-top has-shadow">
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item">
+          <Link to="/" className="navbar-item">
             Home
-          </a>
-          <a href="/tabs" className="navbar-item">
+          </Link>
+          <Link to="/tabs" className="navbar-item">
             Tabs
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
