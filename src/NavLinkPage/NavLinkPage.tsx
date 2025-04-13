@@ -1,10 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { Link, matchPath, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
-const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-  cn('navbar-item', { 'is-active': isActive });
+// const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+//   cn('navbar-item', { 'is-active': isActive });
 
 export const NavigationLink = () => {
+  const location = useLocation();
+  const isActive = (path: string) =>
+    matchPath({ path, end: path === '/' }, location.pathname);
+
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -12,12 +16,18 @@ export const NavigationLink = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass}>
+          <Link
+            to="/"
+            className={cn('navbar-item', { 'is-active': isActive('/') })}
+          >
             Home
-          </NavLink>
-          <NavLink to="/tabs" className={getLinkClass}>
+          </Link>
+          <Link
+            to="/tabs"
+            className={cn('navbar-item', { 'is-active': isActive('/tabs') })}
+          >
             Tabs
-          </NavLink>
+          </Link>
         </div>
       </div>
     </nav>
