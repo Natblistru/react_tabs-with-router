@@ -1,11 +1,13 @@
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const handlelinkClass = ({ isActive }: { isActive: boolean }) => {
+const handleLinkClass = (isActive: boolean): string => {
   return classNames('navbar-item', { 'is-active': isActive });
 };
 
 export const NavBar: React.FC = () => {
+  const { pathname } = useLocation();
+
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -13,12 +15,15 @@ export const NavBar: React.FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={handlelinkClass}>
+          <Link to="/" className={handleLinkClass(pathname === '/')}>
             Home
-          </NavLink>
-          <NavLink to="/tabs" className={handlelinkClass}>
+          </Link>
+          <Link
+            to="/tabs"
+            className={handleLinkClass(pathname.startsWith('/tabs'))}
+          >
             Tabs
-          </NavLink>
+          </Link>
         </div>
       </div>
     </nav>
