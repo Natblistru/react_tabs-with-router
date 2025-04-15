@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
-  const className = ({ isActive }: { isActive: boolean }) =>
+  const isActiveLink = ({ isActive }: { isActive: boolean }) =>
     classNames('navbar-item', { 'is-active': isActive });
 
   return (
@@ -12,10 +12,10 @@ const Nav = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={className}>
+          <NavLink to="/" className={isActiveLink}>
             Home
           </NavLink>
-          <NavLink to="/tabs" className={className}>
+          <NavLink to="/tabs" className={isActiveLink}>
             Tabs
           </NavLink>
         </div>
