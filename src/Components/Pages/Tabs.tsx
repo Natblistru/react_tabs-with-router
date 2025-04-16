@@ -1,4 +1,4 @@
-import { Tab } from "../Tab/tab"
+import { Tab } from '../Tab/tab';
 
 export const Tabs = () => {
   return (

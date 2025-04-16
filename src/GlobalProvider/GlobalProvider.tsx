@@ -1,5 +1,5 @@
-import React from "react";
-import { Tab } from "../types/Tab";
+import React from 'react';
+import { Tab } from '../types/Tab';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,6 +13,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const GlobalProvider: React.FC<Props> = ({ children }) => {
+export const GlobalProvider = ({ children }: Props) => {
   return <TabContext.Provider value={tabs}>{children}</TabContext.Provider>;
 };
