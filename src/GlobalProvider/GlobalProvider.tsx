@@ -13,6 +13,6 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const GlobalProvider = ({ children }: Props) => {
+export const GlobalProvider: React.FC<Props> = ({ children }) => {
   return <TabContext.Provider value={tabs}>{children}</TabContext.Provider>;
 };
