@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { NavLink, Outlet } from 'react-router-dom';
 
 export const App = () => {
-  const getLinkClss = ({ isActive }: { isActive: boolean }) =>
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames('navbar-item', { 'is-active': isActive });
 
   return (
@@ -17,10 +17,10 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={getLinkClss}>
+            <NavLink to="/" className={getLinkClass}>
               Home
             </NavLink>
-            <NavLink to="/tabs" className={getLinkClss}>
+            <NavLink to="/tabs" className={getLinkClass}>
               Tabs
             </NavLink>
           </div>
