@@ -18,9 +18,7 @@ export default function Root() {
 
           <Route path="home" element={<Navigate to="/" replace />} />
 
-          <Route path="tabs">
-            <Route path=":userId?" element={<TabsPage />} />
-          </Route>
+          <Route path="tabs/:userId?" element={<TabsPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

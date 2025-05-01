@@ -23,7 +23,7 @@ export default function TabsPage() {
                 data-cy="Tab"
                 className={cn({ 'is-active': userId === id })}
               >
-                <Link to={`../${id}`}>{title}</Link>
+                <Link to={`/tabs/${id}`}>{title}</Link>
               </li>
             );
           })}
