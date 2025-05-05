@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 import { tabs } from '../utils/tabs';
-import cn from 'classNames';
+import cn from 'classnames';
 
 export const TabsPage: React.FC = () => {
   const { userId } = useParams();
