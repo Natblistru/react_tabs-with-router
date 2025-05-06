@@ -7,14 +7,14 @@ export const TabsPage: React.FC = () => {
   const { tabs } = useContext(DataContext);
   const { tabId } = useParams();
 
-  const findOne = tabs.find(tab => tab.id === tabId);
+  const foundId = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
       <TabsComponent />
       <div className="block" data-cy="TabContent">
-        {findOne ? findOne.content : 'Please select a tab'}
+        {foundId ? foundId.content : 'Please select a tab'}
       </div>
     </>
   );
