@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TabsComponent } from '../../components/tsbs/tabs.component';
+import { TabsComponent } from '../../components/tabs/tabs.component';
 import { DataContext } from '../../store/DataContext';
 import { useParams } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ export const TabsPage: React.FC = () => {
   const { tabs } = useContext(DataContext);
   const { tabId } = useParams();
 
-  const foundId = tabs.find(tab => tab.id === tabId);
+  const foundId = tabs.find(tab => String(tab.id) === tabId);
 
   return (
     <>

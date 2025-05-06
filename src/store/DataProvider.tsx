@@ -1,9 +1,7 @@
-import React, { PropsWithChildren, useContext } from 'react';
-import { DataContext } from './DataContext';
+import React, { PropsWithChildren } from 'react';
+import { DataContext, tabs } from './DataContext';
 
 export const DataProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const { tabs } = useContext(DataContext);
-
   return (
     <DataContext.Provider value={{ tabs }}>{children}</DataContext.Provider>
   );
