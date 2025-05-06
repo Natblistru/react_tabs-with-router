@@ -8,10 +8,9 @@ export const NavigationComponent: React.FC = () => {
 
   return (
     <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow has-navbar-fixed-top"
+      className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <div className="container">
         <div className="navbar-brand">
           <NavLink to="/" className={getClass}>

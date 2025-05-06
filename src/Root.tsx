@@ -1,10 +1,4 @@
-import {
-  HashRouter,
-  Navigate,
-  redirect,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { DataProvider } from './store/DataProvider';
 import { App } from './App';
 import { HomePage } from './pages/home-page/home.page';
