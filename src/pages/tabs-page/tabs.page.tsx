@@ -1,0 +1,21 @@
+import React, { useContext } from 'react';
+import { TabsComponent } from '../../components/tabs/tabs.component';
+import { DataContext } from '../../store/DataContext';
+import { useParams } from 'react-router-dom';
+
+export const TabsPage: React.FC = () => {
+  const { tabs } = useContext(DataContext);
+  const { tabId } = useParams();
+
+  const foundId = tabs.find(tab => String(tab.id) === tabId);
+
+  return (
+    <>
+      <h1 className="title">Tabs page</h1>
+      <TabsComponent />
+      <div className="block" data-cy="TabContent">
+        {foundId ? foundId.content : 'Please select a tab'}
+      </div>
+    </>
+  );
+};
