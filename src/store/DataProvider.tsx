@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useContext } from 'react';
-import { DataContext } from './DatatContext';
+import { DataContext } from './DataContext';
 
 export const DataProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const { tabs } = useContext(DataContext);

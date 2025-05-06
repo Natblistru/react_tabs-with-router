@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../store/DatatContext';
+import { DataContext } from '../../store/DataContext';
 import { TabComponent } from '../tab/tabComponent';
 
 export const TabsComponent: React.FC = () => {

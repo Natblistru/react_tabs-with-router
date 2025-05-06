@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { TabsComponent } from '../../components/tsbs/tabs.component';
-import { DataContext } from '../../store/DatatContext';
+import { DataContext } from '../../store/DataContext';
 import { useParams } from 'react-router-dom';
 
 export const TabsPage: React.FC = () => {
