@@ -5,7 +5,7 @@ import { Tabs } from './component/Tabs';
 import { Default } from './component/DefoltPage';
 import { TabContent } from './component/TabsContent';
 
-export const MainRouts = () => (
+export const MainRoutes = () => (
   <HashRouter>
     <Routes>
       <Route path="/" element={<App />}>
