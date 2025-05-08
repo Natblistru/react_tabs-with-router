@@ -1,11 +1,16 @@
-import { NavLink, useParams } from 'react-router-dom';
-import { tabs } from '../../consts';
+import { NavLink } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 
-export const Tabs = ({}) => {
-  const { tabId } = useParams();
+interface PropsTabs {
+  tabs: Tab[];
+  activeTabId: string | undefined;
+}
+
+export const Tabs = ({ tabs, activeTabId }: PropsTabs) => {
   const selectedTabId =
-    tabId && tabs.some(tab => tab.id === tabId) ? tabId : null;
+    activeTabId && tabs.some(tab => tab.id === activeTabId)
+      ? activeTabId
+      : null;
 
   return (
     <div data-cy="TabsComponent">
@@ -16,7 +21,6 @@ export const Tabs = ({}) => {
               key={tab.id}
               className={tab.id === selectedTabId ? 'is-active' : ''}
               data-cy="Tab"
-              onClick={() => {}}
             >
               <NavLink to={`../${tab.id}`} data-cy="TabLink">
                 {tab.title}

@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import classNames from 'classNames';
+import classNames from 'classnames';
 
 export const App = () => (
   <>
