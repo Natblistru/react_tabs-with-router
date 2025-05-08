@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { App } from './App';
 import { HomePage } from './pages/HomePage';
 import { TabPage } from './pages/TabPage';
@@ -17,6 +17,7 @@ export const Root = () => (
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>
+      <Route path="/home" element={<Navigate to="/" replace />} />
     </Routes>
   </HashRouter>
 );

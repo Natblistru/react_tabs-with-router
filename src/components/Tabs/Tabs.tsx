@@ -3,7 +3,9 @@ import { tabs } from '../../consts';
 import { Tab } from '../../types/Tab';
 
 export const Tabs = ({}) => {
-  const { tabId: selectedTabId } = useParams();
+  const { tabId } = useParams();
+  const selectedTabId =
+    tabId && tabs.some(tab => tab.id === tabId) ? tabId : null;
 
   return (
     <div data-cy="TabsComponent">
