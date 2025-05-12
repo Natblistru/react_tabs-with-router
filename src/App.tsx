@@ -47,6 +47,7 @@ export const App = () => (
             <Route path="tab-1" element={<TabContent text="Some text 1" />} />
             <Route path="tab-2" element={<TabContent text="Some text 2" />} />
             <Route path="tab-3" element={<TabContent text="Some text 3" />} />
+            <Route path="*" element={<div>Please select a tab</div>} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
