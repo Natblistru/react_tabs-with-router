@@ -9,6 +9,7 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
+import classNames from 'classnames';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -20,7 +21,7 @@ const HomePage = () => <h1 className="title">Home page</h1>;
 
 const TabsPage = () => {
   const { tabId } = useParams();
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const selectedTab = tabs.some(tab => tab.id === tabId);
 
   return (
     <>
@@ -32,7 +33,9 @@ const TabsPage = () => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={tab.id === tabId ? 'is-active' : ''}
+              className={classNames({
+                'is-active': tabId === tab.id && selectedTab,
+              })}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
@@ -41,7 +44,9 @@ const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content || 'Please select a tab'}
+        {selectedTab
+          ? tabs.find(tab => tab.id === tabId)?.content
+          : 'Please select a tab'}
       </div>
     </>
   );
@@ -52,7 +57,7 @@ export const App = () => {
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
+      {/* Also requires <html class=\"has-navbar-fixed-top\"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
