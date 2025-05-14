@@ -11,7 +11,6 @@ createRoot(document.getElementById('root') as HTMLElement).render(
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
         <Route path="tabs" element={<Tabs />}>
-          <Route index element={<Tabs />} />
           <Route path=":tabId?" element={<Tabs />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
