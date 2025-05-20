@@ -17,6 +17,7 @@ const Navbar = () => (
         >
           Home
         </NavLink>
+
         <NavLink
           to="/tabs"
           className={({ isActive }) =>

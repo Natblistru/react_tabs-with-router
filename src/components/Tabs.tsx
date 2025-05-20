@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { NavLink, useParams } from 'react-router-dom';
 
 const tabs = [
@@ -8,6 +9,7 @@ const tabs = [
 
 const Tabs = () => {
   const { tabId } = useParams();
+
   const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
@@ -18,13 +20,14 @@ const Tabs = () => {
             <li
               key={id}
               data-cy="Tab"
-              className={id === tabId ? 'is-active' : ''}
+              className={classNames({ 'is-active': id === tabId })}
             >
               <NavLink to={`/tabs/${id}`}>{title}</NavLink>
             </li>
           ))}
         </ul>
       </div>
+
       <div className="block" data-cy="TabContent">
         {activeTab ? activeTab.content : 'Please select a tab'}
       </div>
