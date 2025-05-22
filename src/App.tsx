@@ -1,18 +1,30 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
+import { useEffect } from 'react';
 
 //
-export const App = () => (
-  <>
-    <Header />
+export const App = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    <div className="section">
-      <div className="container">
-        <Outlet />
+  useEffect(() => {
+    if (location.pathname === '/home') {
+      navigate('/', { replace: true });
+    }
+  }, [location.pathname, navigate]);
+
+  return (
+    <>
+      <Header />
+
+      <div className="section">
+        <div className="container">
+          <Outlet />
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};

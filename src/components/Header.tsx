@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 export const Header = () => {
+  const getClassName = ({ isActive }: { isActive: boolean }) =>
+    classNames('navbar-item', { 'is-active': isActive });
+
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -8,12 +12,12 @@ export const Header = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item is-active">
+          <NavLink to="/" className={getClassName}>
             Home
-          </Link>
-          <Link to="/tabs" className="navbar-item">
+          </NavLink>
+          <NavLink to="/tabs" className={getClassName}>
             Tabs
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>
