@@ -1,6 +1,8 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { NavLink, Outlet } from 'react-router-dom';
+import classNames from 'classnames';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,28 +10,39 @@ import './App.scss';
 //   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 // ];
 
-export const App = () => (
-  <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">
+const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+  classNames('navbar-item', { 'is-active': isActive });
+
+export const App = () => {
+  return (
+    <>
+      {/* Also requires <html class="has-navbar-fixed-top"> */}
+      <nav
+        className="navbar is-light is-fixed-top is-mobile has-shadow"
+        data-cy="Nav"
+      >
+        <div className="container">
+          <div className="navbar-brand">
+            <NavLink to={'/'} className={getLinkClass}>
+              Home
+            </NavLink>
+            <NavLink to={'/tabs'} className={getLinkClass}>
+              Tabs
+            </NavLink>
+            {/* <a href="/" className="navbar-item is-active">
             Home
           </a>
           <a href="/tabs" className="navbar-item">
             Tabs
-          </a>
+          </a> */}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <div className="section">
-      <div className="container">
-        <h1 className="title">Home page</h1>
+      <div className="section">
+        <div className="container">
+          <Outlet />
+          {/* <h1 className="title">Home page</h1>
         <h1 className="title">Tabs page</h1>
         <h1 className="title">Page not found</h1>
 
@@ -49,8 +62,9 @@ export const App = () => (
 
         <div className="block" data-cy="TabContent">
           Please select a tab
+        </div> */}
         </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
