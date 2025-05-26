@@ -51,7 +51,7 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/home" className="navbar-item">
+            <Link to="/" className="navbar-item">
               <img src="/logo.svg" alt="MA" className="logo" />
             </Link>
             <NavLink to="/" className={getLinkActive} style={getLinkStyle}>

@@ -55,7 +55,7 @@ export const TabsPage = () => {
         </ul>
       </div>
 
-      <div className="block" style={{ color: 'fiolet' }} data-cy="TabContent">
+      <div className="block" data-cy="TabContent">
         <p style={{ color: 'violet' }}>
           {selectedTab ? selectedTab.content : 'Please select a tab'}
         </p>
