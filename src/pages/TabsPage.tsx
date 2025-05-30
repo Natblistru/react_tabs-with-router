@@ -45,7 +45,6 @@ const TabList: React.FC = () => {
           >
             <Link
               to={`/tabs/${tab.id}`}
-              replace
               onClick={e => {
                 if (currentPath === `/tabs/${tab.id}`) {
                   e.preventDefault();
