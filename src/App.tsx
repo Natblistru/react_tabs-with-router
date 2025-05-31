@@ -7,7 +7,7 @@ import './App.scss';
 
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
-import { NotFoundPage } from './components/NotFoudPage';
+import { NotFoundPage } from './components/NotFoundPage';
 
 export const App: React.FC = () => {
   return (
