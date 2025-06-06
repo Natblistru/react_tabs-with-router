@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
-import { NotFoundPage } from './pages/NotFaundPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { TabsPage } from './pages/TabsPage';
 
 function addActive({ isActive }: { isActive: boolean }) {
