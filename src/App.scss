@@ -1,3 +1,23 @@
-iframe {
-  display: none;
+.is-active > a {
+  font-weight: bold;
+  color: #00acdc;
+}
+
+.tabs__links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+}
+
+.tabs__item a {
+  text-decoration: none;
+}
+
+.tabs__item.is-active a {
+  color: #34568b;
+}
+
+.tabs__content {
+  margin-top: 20px;
 }
