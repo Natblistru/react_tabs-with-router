@@ -3,8 +3,8 @@ import '../App.scss';
 import { Tab } from '../types/Tab';
 
 export const TabsInBox = ({ tabs }: { tabs: Tab[] }) => {
-  const { tabId = 0 } = useParams();
-  const titleTab = tabs.find(tab => tab.id === tabId)?.content || '';
+  const { tabId = '' } = useParams();
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -26,14 +26,14 @@ export const TabsInBox = ({ tabs }: { tabs: Tab[] }) => {
         </ul>
       </div>
 
-      {titleTab === '' ? (
+      {selectedTab ? (
         <div className="block" data-cy="TabContent">
-          Please select a tab
+          {selectedTab.content}
         </div>
       ) : (
-        <div className="block" data-cy="TabContent">
-          {titleTab}
-        </div>
+        <p className="block" data-cy="TabContent">
+          Please select a tab
+        </p>
       )}
     </>
   );
