@@ -9,21 +9,10 @@ const Nav: FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              `navbar-item ${isActive ? 'is-active' : ''}`
-            }
-          >
+          <NavLink to="/" end className="navbar-item">
             Home
           </NavLink>
-          <NavLink
-            to="/tabs"
-            className={({ isActive }) =>
-              `navbar-item ${isActive ? 'is-active' : ''}`
-            }
-          >
+          <NavLink to="/tabs" className="navbar-item">
             Tabs
           </NavLink>
         </div>
