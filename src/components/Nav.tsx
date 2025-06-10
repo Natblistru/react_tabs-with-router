@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Nav: FC = () => {
   return (
@@ -9,12 +9,12 @@ const Nav: FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" end className="navbar-item">
+          <Link to="/" className="navbar-item">
             Home
-          </NavLink>
-          <NavLink to="/tabs" className="navbar-item">
+          </Link>
+          <Link to="/tabs" className="navbar-item">
             Tabs
-          </NavLink>
+          </Link>
         </div>
       </div>
     </nav>
