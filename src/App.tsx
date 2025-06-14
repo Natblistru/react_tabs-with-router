@@ -8,7 +8,6 @@ import {
   Route,
   Routes,
   useParams,
-  Outlet,
   Link,
 } from 'react-router-dom';
 import React from 'react';
@@ -92,7 +91,6 @@ const NotFoundPage = () => <h1 className="title">Page not found</h1>;
 
 export const App = () => (
   <>
-    <html className="has-navbar-fixed-top" />
     <Navigation />
 
     <div className="section">
