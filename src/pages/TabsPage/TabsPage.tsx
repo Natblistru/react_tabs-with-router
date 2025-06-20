@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 import classNames from 'classnames';
 
@@ -12,6 +12,7 @@ const tabs = [
 export const TabsPage = () => {
   const [activeTab, setActiveTab] = useState<Tab | null>(null);
   const { tabId } = useParams();
+  const selectedTabId = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="container">
@@ -26,16 +27,14 @@ export const TabsPage = () => {
               className={classNames({ 'is-active': tabId === tab.id })}
               onClick={() => setActiveTab(tab)}
             >
-              <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabId === undefined ? 'Please select a tab' : ''}
-
-        {activeTab?.content}
+        {!selectedTabId ? 'Please select a tab' : activeTab?.content}
       </div>
     </div>
   );
