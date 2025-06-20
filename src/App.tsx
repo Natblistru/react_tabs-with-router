@@ -53,7 +53,7 @@ export const App = () => {
 
             <Route path="tabs">
               <Route index element={<TabsPage tabs={tabs} />} />
-              <Route path=":tabId?" element={<TabsPage tabs={tabs} />} />
+              <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
             </Route>
 
             <Route
