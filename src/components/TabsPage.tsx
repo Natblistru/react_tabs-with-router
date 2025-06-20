@@ -9,7 +9,7 @@ const tabs: Tab[] = [
 ];
 
 export const TabsPage: React.FC = () => {
-  const { tabId } = useParams<{ tabId?: string }>();
+  const { tabId } = useParams();
   const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
