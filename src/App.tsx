@@ -36,7 +36,7 @@ export const App = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<HomePage path={'/'} />} />
-            <Route path="/tabs" element={<Tabs tabs={tabs} />} />
+            <Route path={`/tabs/:tabsId?`} element={<Tabs tabs={tabs} path={`/tabs`} />} />
 
             {/* <Route path='/' element={<HomePage />} />
         <Route path='/' element={<HomePage />} />
