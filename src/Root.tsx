@@ -1,6 +1,6 @@
 import { Route, Routes, HashRouter, Navigate } from 'react-router-dom';
 import { App } from './App';
-import { TabsPages } from './types/components/TabsPages';
+import { TabsPages } from './components/TabsPages';
 
 export const Root = () => {
   return (
