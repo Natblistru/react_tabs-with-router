@@ -6,6 +6,7 @@ import { HomePage } from './components/HomePage/HomePage';
 import { TabsPage } from './components/TabsPage/TabsPage';
 import cn from 'classnames';
 import { PageNotFound } from './components/PageNotFound/PageNotFound';
+import { TabContent } from './components/TabContent/TabContent';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -51,8 +52,15 @@ export const App = () => {
           <Route path="/home" element={<Navigate to="/" replace />} />
 
           <Route path="tabs" element={<TabsPage tabs={tabs} />}>
-            <Route index element={<TabsPage tabs={tabs} />} />
-            <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+            <Route
+              index
+              element={
+                <div className="block" data-cy="TabContent">
+                  Please select a tab
+                </div>
+              }
+            />
+            <Route path=":tabId" element={<TabContent />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />
