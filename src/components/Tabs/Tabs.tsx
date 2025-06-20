@@ -9,7 +9,7 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-  const activeTab = tabs.find(tab => tab.id === tabId) || null;
+  const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -20,7 +20,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
               key={tab.id}
               data-cy="Tab"
               className={classNames({
-                'is-active': tab.id === tabId,
+                'is-active': tab.id === activeTab?.id,
               })}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
@@ -29,9 +29,15 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
-      </div>
+      {activeTab ? (
+        <div className="block" data-cy="TabContent">
+          {activeTab.content}
+        </div>
+      ) : (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      )}
     </>
   );
 };
