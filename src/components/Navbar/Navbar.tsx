@@ -2,15 +2,14 @@ import cn from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const Navbar: React.FC = () => {
-  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-    cn('navbar-item', {
-      'is-active': isActive,
-    });
+const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+  cn('navbar-item', {
+    'is-active': isActive,
+  });
 
+export const Navbar: React.FC = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
