@@ -8,7 +8,6 @@ const isActiveNavbar = ({ isActive }: { isActive: boolean }) =>
 
 export const App = () => (
   <>
-    <html className="has-navbar-fixed-top" />
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
