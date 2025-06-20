@@ -1,32 +1,12 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import classNames from 'classnames';
-import { NavLink, Outlet } from 'react-router-dom';
-
-const isNavLinkActive = ({ isActive }: { isActive: boolean }) => {
-  return classNames('navbar-item', {
-    'is-active': isActive,
-  });
-};
+import { Outlet } from 'react-router-dom';
+import { Navbar } from './components/Navbar/Navbar';
 
 export const App = () => (
   <>
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <NavLink to="/" className={isNavLinkActive}>
-            Home
-          </NavLink>
-          <NavLink to="/tabs" className={isNavLinkActive}>
-            Tabs
-          </NavLink>
-        </div>
-      </div>
-    </nav>
+    <Navbar />
 
     <div className="section">
       <div className="container">
