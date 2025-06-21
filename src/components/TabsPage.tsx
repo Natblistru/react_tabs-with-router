@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { tabs } from '../tabs';
 import { Tab } from '../types/Tab';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function preperedSelectedTab(allTabs: Tab[], activeTabId: null | string) {
   const selectedTab = allTabs.find(tab => tab.id === activeTabId) ?? null;
@@ -12,10 +12,6 @@ function preperedSelectedTab(allTabs: Tab[], activeTabId: null | string) {
 export const TabsPage = () => {
   const { tabId } = useParams();
   const activeTabId = tabId ? tabId : null;
-
-  if (tabId === '/home') {
-    return <Navigate to="/" />;
-  }
 
   const selectedTab = preperedSelectedTab(tabs, activeTabId);
 
