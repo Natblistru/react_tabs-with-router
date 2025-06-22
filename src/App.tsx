@@ -13,6 +13,10 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const isAciveClass = ({ isActive }: { isActive: boolean }) => {
+  return classNames('navbar-item', { 'is-active': isActive });
+};
+
 export const App = () => (
   <>
     <nav
@@ -21,21 +25,10 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) => {
-              return classNames('navbar-item', { 'is-active': isActive });
-            }}
-          >
+          <NavLink to="/" end className={isAciveClass}>
             Home
           </NavLink>
-          <NavLink
-            to="/tabs"
-            className={({ isActive }) => {
-              return classNames('navbar-item', { 'is-active': isActive });
-            }}
-          >
+          <NavLink to="/tabs" className={isAciveClass}>
             Tabs
           </NavLink>
         </div>
