@@ -48,7 +48,7 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { tabId } = useParams<{ tabId?: string }>();
+  const { tabId } = useParams();
 
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
@@ -58,17 +58,17 @@ export const TabsPage = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            return (
-              <li
-                data-cy="Tab"
-                className={classNames({ 'is-active': tabId === tab.id })}
-                key={tab.id}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
+          {tabs.map(tab => (
+            <li
+              data-cy="Tab"
+              key={tab.id}
+              className={classNames({
+                'is-active': tabId === tab.id,
+              })}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
