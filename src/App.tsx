@@ -26,7 +26,9 @@ export const App = () => (
     </nav>
 
     <div className="section">
-      <Outlet />
+      <div className="container">
+        <Outlet />
+      </div>
     </div>
   </>
 );

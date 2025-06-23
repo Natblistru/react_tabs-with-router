@@ -1,3 +1,5 @@
-export const HomePage = () => {
-  return <h1 className="title">Home page</h1>;
-};
+export const HomePage: React.FC = () => (
+  <div>
+    <h1 className="title">Home page</h1>
+  </div>
+);
