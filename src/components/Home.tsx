@@ -1,11 +1,14 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Home = () => {
+  const location = useLocation();
+  const isActive = location.pathname === '/';
+
   return (
     <>
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item is-active">
+        <Link to="/" className={`navbar-item ${isActive ? 'is-active' : ''}`}>
           Home
         </Link>
       </div>
