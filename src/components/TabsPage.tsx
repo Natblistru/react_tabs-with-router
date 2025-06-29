@@ -27,7 +27,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
                   className={isActive ? 'is-active' : ''}
                   data-cy="Tab"
                 >
-                  <NavLink to={tab.id}>{tab.title}</NavLink>
+                  <NavLink to={`./${tab.id}`}>{tab.title}</NavLink>
                 </li>
               );
             })}
