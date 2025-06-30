@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Home } from './components/Home';
 import { Tabs } from './components/Tabs';
 import { TabsPage } from './components/TabsPage';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 export const App = () => {
   return (
@@ -27,6 +27,7 @@ export const App = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/tabs" element={<TabsPage />} />
             <Route path="/tabs/:id" element={<TabsPage />} />
             <Route

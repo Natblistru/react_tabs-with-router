@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const location = useLocation();
   const isActive = location.pathname === '/';
 
